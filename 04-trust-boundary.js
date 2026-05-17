@@ -63,3 +63,11 @@ inputs.forEach((input, i) => {
     }
     console.log('');
 });
+
+// -------- Why this matters --------
+console.log('Why this matters:');
+console.log(' - Without checks, bad data flows DEEP into your program.');
+console.log(' - That can cause crashes, wrong results, or security holes.');
+console.log(' - Validate ONCE, at the boundary. Then trust the data inside.');
+
+console.log('\nDone.\n');
