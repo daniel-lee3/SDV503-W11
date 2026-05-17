@@ -28,4 +28,9 @@ function validateSignUp(input) {
     } else if (input.email.indexOf('@') === -1) {
         errors.push('email must contain "@"');
     }
+
+    if (errors.length > 0) {
+        return { ok: false, errors: errors };
+    }
+    return { ok: true, value: input };
 }
