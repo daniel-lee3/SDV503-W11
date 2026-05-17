@@ -21,4 +21,11 @@ function validateSignUp(input) {
     } else if (input.age < 13 || input.age > 120) {
         errors.push('age must be between 13 and 120');
     }
+
+    // 4) email: must be a string and contain "@"
+    if (typeof input.email !== 'string') {
+        errors.push('email must be a string');
+    } else if (input.email.indexOf('@') === -1) {
+        errors.push('email must contain "@"');
+    }
 }
