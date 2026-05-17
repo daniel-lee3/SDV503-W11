@@ -34,3 +34,32 @@ function validateSignUp(input) {
     }
     return { ok: true, value: input };
 }
+
+// -------- Try the validator with several inputs --------
+const inputs = [
+    // 1) Looks fine
+    { username: "Layla19", age: 19, email: "layla@example.com" },
+
+    // 2) age is a STRING, not a number (a very common bug!)
+    { username: "omar", age: '20', email: 'omar@x.com' },
+
+    // 3) username too short, email has no "@"
+    { username: 'al', age: 22, email: 'not-an-email'},
+
+    // 4) totally the wrong type
+    'just a string, not an object',
+
+    // 5) missing fields
+    {},
+]
+
+inputs.forEach((input, i) => {
+    console.log(`Input: ${i + 1}:`, input);
+    const result = validateSignUp(input);
+    if (result.ok) {
+        console.log('   accepted ->', result.value);
+    } else {
+        console.log(`   rejected -> ${result.errors.join('; ')}`);
+    }
+    console.log('');
+});
